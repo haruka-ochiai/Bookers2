@@ -1,26 +1,53 @@
-<div>
-    <h1>User info</h1>
-    <%= image_tag @user.get_profile_image(100,100) %>
-    <h3>name <%= @user.name %></h3>
-    <h3>introduction <%= @user.introduction %></h3>
-</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h2>User info</h2>
+                <table class="table">
+                <%= image_tag @user.get_profile_image(100,100) %>
+                <tr><th>name</th><th><%= @user.name %></th></tr>
+                <tr><th>introduction</th><th><%= @user.introduction %></th></tr>
+                </table>
+                <div class="row pb-4">
+                    <% if @user == current_user %>
+                        <%= link_to edit_user_path, class:'btn btn-secondary w-100' do %>
+                        <i class="fas fa-user-cog"></i>
+                    <% end %>
+                        <% end %>
+                </div>
+            <form>
+                <div class="form-group">
+                <%= form_with model: @book do |f| %>
+                    <h2>New book</h2>
+                        <div class="form-group">
+                            <p>Title</p>
+                            <%= f.text_field :title, class:"form-control" %>
+                        </div>
+                        <div class="form-group">
+                            <p>Opinion</p>
+                            <%= f.text_area :body, class:"form-control" %>
+                        </div>
+                        <button type="submit" class="btn btn-success">Create Book</button>
+                <% end %>
+                </div>
+            </form>
+        </div>    
 
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Opinion</th>
-    </tr>
+        <div class="col-md-6">
+           <table class="table">
+               <h1>Books</h1>
+                <tr>
+                    <th>Title</th>
+                    <th>Opinion</th>
+                </tr>
     
-        <% @books.each do |book| %>
-    <tr>
-        <td><%= image_tag @user.get_profile_image(100,100) %></td>
-        <td><%= @user.name %></td>
-        <td><%= book.title %></td>
-        <td><%= book.body %></td>
-        <td><%= link_to 'Edit'%></td>
-        <td><%= link_to 'Destroy' %></td>
-    </tr>
-        <% end %>
-     
-
-</table>
+                <% @books.each do |book| %>
+                    <tr>
+                        <td><%= image_tag @user.get_profile_image(100,100) %></td>
+                        <td><%= book.title %></td>
+                        <td><%= book.body %></td>
+                    </tr>
+                <% end %>
+             </table>
+        </div>
+    </div>
+</div>
