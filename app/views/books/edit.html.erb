@@ -13,6 +13,11 @@
                 </div>
                     <%= f.submit "Update Book", class: "btn btn-success" %>
                     <% end %>
+                
+                <div class= "row mb-3">
+                    <%= link_to "Show", book_path(@book) %> | 
+                    <%= link_to "Back", books_path %>
+                </div>
         </end>
     </div>
 </div>
