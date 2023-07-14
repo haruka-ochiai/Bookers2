@@ -10,6 +10,8 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
+  
 
   <body>
     <header>
@@ -71,6 +73,11 @@
        </div>
       </nav>
     </header>
+    
+  <div>
+    <%= flash[:notice] %>
+  </div>
+  
     <main class="mb-auto">
     <%= yield %>
     </main>
