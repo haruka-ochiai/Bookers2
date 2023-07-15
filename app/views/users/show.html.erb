@@ -2,9 +2,9 @@
     <div class="row">
         <%= render 'books/info', book: @book, user: @user %>
 
-        <div class="col-md8 offset-md-1">
+        <div class="col-md-8 offset-md-1">
            <table class="table table-hover table-inverse">
-               <h1>Books</h1>
+               <h2>Books</h2>
                 
                 <tr>
                     <th></th>
@@ -17,11 +17,11 @@
                     <tr>
                         <td>
                             <%= link_to user_path(book.user_id) do %>
-                                <%= image_tag @user.get_profile_image(100,100) %>
+                                <%= image_tag @user.get_profile_image(80,80) %>
                             <% end %>
                         </td>
                         <td><%= link_to book.title, book_path(book.id) %></td>
-                        <td colspan="4"><%= book.body %></td>
+                        <td><%= book.body %></td>
                     </tr>
                 <% end %>
              </table>

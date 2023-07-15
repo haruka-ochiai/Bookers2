@@ -1,10 +1,8 @@
-
-
-
 <div class="container">
     <div class="row">
-        <div class= "col-mg-8 mx-auto pt-3">
-            <h1>Editing Book</h1>
+        <div class= "col-md-5 pt-3 px-sm-0 mx-auto">
+            
+            <h2>Editing Book</h2>
                 <% if @book.errors.any? %>
                     <%= @book.errors.count %>error prohibited this obj from being saved:
                     <ul>
@@ -16,19 +14,19 @@
                     
                     <%= form_with model: @book, url: book_path(@book.id), method: :patch do |f| %>
                 <div class="form-group">
-                    <label for="inputTitle">Title</label>
+                    <label for="inputTitle">Title</label><br>
                     <%= f.text_field :title, class:"form-control", autofocus: true, id:"inputTitle" %>
                 </div>
                 <div class="form-group">
                     <label for="inputBody">Opinion</label>
-                    <%= f.text_area :body, class:"form-control", autofocus: true, id:"inputBody" %>
+                    <%= f.text_area :body, class:"form-control", classautofocus: true, id:"inputBody" %>
                 </div>
                     <%= f.submit "Update Book", class: "btn btn-success" %>
                     <% end %>
                 
                 <div class= "row mb-3 mx-auto pt-3">
                     
-                    <%= link_to "Show", book_path(@book) %>  |  <%= link_to "Back", books_path %>
+                    <%= link_to "Show", book_path(@book) %>　|　<%= link_to "Back", books_path %>
                     
                 </div>
         </end>
